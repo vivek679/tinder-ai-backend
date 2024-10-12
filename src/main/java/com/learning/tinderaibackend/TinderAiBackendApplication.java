@@ -1,5 +1,6 @@
 package com.learning.tinderaibackend;
 
+import static com.learning.tinderaibackend.profile.Gender.FEMALE;
 import static com.learning.tinderaibackend.profile.Gender.MALE;
 
 import java.time.LocalDateTime;
@@ -32,7 +33,7 @@ public class TinderAiBackendApplication implements CommandLineRunner {
 
     public void run(String... args) {
         System.out.println("My app is running");
-        Profile profile = new Profile(
+        Profile profile1 = new Profile(
                 "1",
                 "vivek",
                 "kumar",
@@ -44,12 +45,28 @@ public class TinderAiBackendApplication implements CommandLineRunner {
                 "LET'S DO IT"
         );
 
-        profileRepository.save(profile);
+        Profile profile2 = new Profile(
+                "2",
+                "foo",
+                "bar",
+                25,
+                "Indian",
+                FEMALE,
+                "Software programmer",
+                "fo01.jpg",
+                "STRONGER"
+        );
+
+        if (!profileRepository.existsById(profile1.profileId())) {
+            profileRepository.save(profile1);
+        }
+        profileRepository.save(profile1);
+        profileRepository.save(profile2);
         profileRepository.findAll().forEach(System.out::println);
 
         Conversation conversation1_1 = new Conversation(
                 "1",
-                profile.profileId(),
+                profile1.profileId(),
                 new ArrayList<>(
                         List.of(
                                 new ChatMessage("Hi' there!!!", "1", LocalDateTime.now()),
@@ -57,8 +74,8 @@ public class TinderAiBackendApplication implements CommandLineRunner {
                         ))
         );
 
-        conversationRepository.save(conversation1_1);
-        conversationRepository.findAll().forEach(System.out::println);
+//        conversationRepository.save(conversation1_1);
+//        conversationRepository.findAll().forEach(System.out::println);
 
     }
 

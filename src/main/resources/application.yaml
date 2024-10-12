@@ -21,6 +21,11 @@ spring:
       base-url: http://localhost:11434
       chat:
         enabled: true
+  data:
+    mongodb:
+#      port: 63804
+      uri: mongodb://root:secret@localhost:63804/mydatabase?authSource=admin
+
 logging:
   level:
     com.learning.tinderaibackend: debug
