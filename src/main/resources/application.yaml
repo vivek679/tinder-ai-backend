@@ -1,0 +1,26 @@
+
+server:
+  port: 9990
+
+spring:
+  application:
+    name: tinder-ai-backend
+
+  # devtools
+  devtools:
+    add-properties: true
+
+  # AI Model configuration
+  ai:
+    # OPEN_AI
+    openai:
+      api-key: ${SPRING_AI_OPENAI_API_KEY}
+
+    # OLLAMA
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        enabled: true
+logging:
+  level:
+    com.learning.tinderaibackend: debug
