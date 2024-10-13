@@ -12,26 +12,44 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.learning.tinderaibackend.conversations.ConversationRepository;
+import com.learning.tinderaibackend.matches.MatchRepository;
 import com.learning.tinderaibackend.profile.Profile;
+import com.learning.tinderaibackend.profile.ProfileCreationService;
 import com.learning.tinderaibackend.profile.ProfileRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @SpringBootApplication
+@RequiredArgsConstructor
 public class TinderAiBackendApplication implements CommandLineRunner {
 
-    @Autowired
-    private ProfileRepository profileRepository;
+    private final ProfileRepository profileRepository;
+    private final MatchRepository matchRepository;
+    private final ConversationRepository conversationRepository;
 
-    @Autowired
-    private ConversationRepository conversationRepository;
+    private final ProfileCreationService profileCreationService;
 
-    @Autowired
-    private OpenAiChatModel chatModel;
+
+    private final OpenAiChatModel chatModel;
 
     public static void main(String[] args) {
         SpringApplication.run(TinderAiBackendApplication.class, args);
     }
 
+    private void clearAllData() {
+        conversationRepository.deleteAll();
+        matchRepository.deleteAll();
+        profileRepository.deleteAll();
+    }
+
+    @Override
     public void run(String... args) {
+        System.out.println("Pre-processing-application");
+        clearAllData();
+        profileCreationService.saveProfilesToDB();
+    }
+
+    public void run2(String... args) {
         System.out.println("My app is running");
 
         Prompt prompt = new Prompt("Hi how can i connect springboot app with ollama running in docker");
@@ -69,19 +87,6 @@ public class TinderAiBackendApplication implements CommandLineRunner {
             profileRepository.save(profile2);
         }
         profileRepository.findAll().forEach(System.out::println);
-
-//        Conversation conversation1_1 = new Conversation(
-//                "1",
-//                profile1.profileId(),
-//                new ArrayList<>(
-//                        List.of(
-//                                new ChatMessage("Hi' there!!!", "1", LocalDateTime.now()),
-//                                new ChatMessage("Hello' How you doing?", "2", LocalDateTime.now())
-//                        ))
-//        );
-
-//        conversationRepository.save(conversation1_1);
-//        conversationRepository.findAll().forEach(System.out::println);
 
     }
 

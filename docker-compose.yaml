@@ -7,7 +7,7 @@ services:
       - 'MONGO_INITDB_ROOT_PASSWORD=secret'
       - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
-      - '27017'
+      - '27017:27017'  # Fixed mapping: host_port:container_port
     volumes:
       - ./db/volume_mongo:/data/db
     healthcheck:
@@ -22,7 +22,7 @@ services:
     container_name: tinder-ai-ollama
     image: 'ollama/ollama:latest'
     ports:
-      - '11434'
+      - '11434:11434'
     networks:
       - tinder-network
 

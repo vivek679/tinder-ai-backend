@@ -34,3 +34,17 @@ spring:
 logging:
   level:
     com.learning.tinderaibackend: debug
+
+tinderai:
+  character:
+    user: "{'profileId':'8b0e4a15-95c2-45bd-937d-f111a8bfbfec', 'firstName':'Vivek', 'lastName':'Kumar', 'age':27, 'ethnicity':'Indian', 'gender':'MALE', 'bio':'Software engineer, teacher and learner. I like reading and making things.', 'imageUrl':'', 'myersBriggsPersonalityType':'INTP'}"
+#    user:
+#      id: "user"
+#      firstName: "Vivek"
+#      lastName: "Kumar"
+#      age: 27
+#      ethnicity: "Indian"
+#      gender: "MALE"
+#      bio: "Software engineer, teacher and learner. I like reading and making things."
+#      imageUrl: ""
+#      myersBriggsPersonalityType: "INTP"

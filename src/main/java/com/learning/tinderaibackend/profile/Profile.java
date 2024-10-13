@@ -1,7 +1,9 @@
 package com.learning.tinderaibackend.profile;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "profiles")
 public record Profile(
         @Id
         String profileId, // As i want non predictable Ids
