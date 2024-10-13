@@ -8,6 +8,8 @@ services:
       - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
       - '27017'
+    volumes:
+      - ./db/volume_mongo:/data/db
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "--silent" ]
       retries: 10
