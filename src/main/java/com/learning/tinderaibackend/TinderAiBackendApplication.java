@@ -3,6 +3,9 @@ package com.learning.tinderaibackend;
 import static com.learning.tinderaibackend.profile.Gender.FEMALE;
 import static com.learning.tinderaibackend.profile.Gender.MALE;
 
+import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,12 +24,20 @@ public class TinderAiBackendApplication implements CommandLineRunner {
     @Autowired
     private ConversationRepository conversationRepository;
 
+    @Autowired
+    private OpenAiChatModel chatModel;
+
     public static void main(String[] args) {
         SpringApplication.run(TinderAiBackendApplication.class, args);
     }
 
     public void run(String... args) {
         System.out.println("My app is running");
+
+        Prompt prompt = new Prompt("Hi how can i connect springboot app with ollama running in docker");
+        ChatResponse response = chatModel.call(prompt);
+        System.out.println(response.getResult().getOutput());
+
         Profile profile1 = new Profile(
                 "1",
                 "vivek",
