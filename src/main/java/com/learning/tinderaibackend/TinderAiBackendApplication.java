@@ -1,12 +1,11 @@
 package com.learning.tinderaibackend;
 
-import static com.learning.tinderaibackend.profile.Gender.FEMALE;
-import static com.learning.tinderaibackend.profile.Gender.MALE;
+import static com.learning.tinderaibackend.enums.Gender.FEMALE;
+import static com.learning.tinderaibackend.enums.Gender.MALE;
 
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -47,6 +46,7 @@ public class TinderAiBackendApplication implements CommandLineRunner {
         System.out.println("Pre-processing-application");
         clearAllData();
         profileCreationService.saveProfilesToDB();
+        profileCreationService.createProfile(8);
     }
 
     public void run2(String... args) {
