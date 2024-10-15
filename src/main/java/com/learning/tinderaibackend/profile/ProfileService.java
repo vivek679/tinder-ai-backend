@@ -1,12 +1,14 @@
 package com.learning.tinderaibackend.profile;
 
-import static com.learning.tinderaibackend.profile.Gender.FEMALE;
-import static com.learning.tinderaibackend.profile.Gender.MALE;
+import static com.learning.tinderaibackend.enums.Gender.FEMALE;
+import static com.learning.tinderaibackend.enums.Gender.MALE;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.learning.tinderaibackend.enums.Gender;
 
 import lombok.RequiredArgsConstructor;
 

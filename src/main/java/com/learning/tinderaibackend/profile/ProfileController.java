@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.learning.tinderaibackend.enums.Gender;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController

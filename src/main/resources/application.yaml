@@ -26,6 +26,11 @@ spring:
       base-url: http://localhost:11434
       chat:
         enabled: true
+        model: llama3.1
+        options:
+          temperature: 0.8
+
+  # Datasource : mongo
   data:
     mongodb:
 #      port: 63804

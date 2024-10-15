@@ -1,4 +1,4 @@
-package com.learning.tinderaibackend.profile;
+package com.learning.tinderaibackend.enums;
 
 public enum Gender {
     MALE,
