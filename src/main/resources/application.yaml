@@ -53,3 +53,9 @@ tinderai:
 #      bio: "Software engineer, teacher and learner. I like reading and making things."
 #      imageUrl: ""
 #      myersBriggsPersonalityType: "INTP"
+
+startup-actions:
+  initializeProfiles: false
+
+profiles:
+  file-path: newProfiles.json
