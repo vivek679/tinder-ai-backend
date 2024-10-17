@@ -28,7 +28,7 @@ public class OllamaChatController {
      * @param prompt
      * @return prompt response
      */
-    @GetMapping(path = "/ai/generate",
+    @GetMapping(path = "/ai/ask",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String generateResponse(@RequestParam(value = "prompt", defaultValue = "What can you do for me?") String prompt) {
@@ -42,7 +42,7 @@ public class OllamaChatController {
      * @param payLoad Payload with Prompt
      * @return response
      */
-    @PostMapping(path = "/ai/generate",
+    @PostMapping(path = "/ai/ask",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> processThePrompt(@RequestBody Map<String, String> payLoad) {

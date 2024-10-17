@@ -23,9 +23,11 @@ services:
     image: 'ollama/ollama:latest'
     ports:
       - '11434:11434'
+    volumes:
+      - ./pull-llama3.sh:/ollama-app/pull-llama3.sh # Mount the script from the host
+    working_dir: /ollama-app  # Set working directory
     networks:
       - tinder-network
-#    command: ["ollama run llama3.1:8b"]
 
 networks:
   tinder-network:
