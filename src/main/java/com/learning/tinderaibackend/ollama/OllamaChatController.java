@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping(path = "/ollama/v1")
+@RequestMapping(path = "v1/ollama")
 @RequiredArgsConstructor
 public class OllamaChatController {
 
