@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.learning.tinderaibackend.exceptions.ApiExceptions;
+import com.learning.tinderaibackend.exceptions.ResourceNotFoundException;
 import com.learning.tinderaibackend.profile.ProfileRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -42,7 +42,7 @@ public class BlockedProfileService {
     public Map<String, List<String>> getBlockedList(String profileId) {
         if (!profileRepository.existsById(profileId)) {
             logger.error("Profile: {} not found", profileId);
-            throw new ApiExceptions.NotFoundException("Profile not found");
+            throw new ResourceNotFoundException("Profile not found");
         }
         // Find the BlockedProfile for the given profileId
         return blockedProfileRepository.findById(profileId)

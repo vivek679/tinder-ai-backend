@@ -3,7 +3,7 @@ package com.learning.tinderaibackend.validation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.learning.tinderaibackend.exceptions.ApiExceptions;
+import com.learning.tinderaibackend.exceptions.BadRequestException;
 import com.learning.tinderaibackend.profile.ProfileRepository;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ public class SwipeValidationService {
     public void validateProfileExists(String profileId1, String profileId2) {
 
         if (StringUtils.isEmpty(profileId1) || StringUtils.isEmpty(profileId2)) {
-            throw new ApiExceptions.BadRequestException("Invalid profileIds");
+            throw new BadRequestException("Invalid profileIds");
         }
     }
 }

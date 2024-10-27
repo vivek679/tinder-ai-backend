@@ -6,10 +6,9 @@ public record ErrorResponse(
         String message,
         int status,
         String reason,
-        String path,
         LocalDateTime timestamp) {
 
-    public ErrorResponse(String message, int status, String reason, String path) {
-        this(message, status, reason, path, LocalDateTime.now());
+    public ErrorResponse(String message, int status, String reason) {
+        this(message, status, reason, LocalDateTime.now());
     }
 }
